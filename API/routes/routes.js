@@ -1,0 +1,20 @@
+const Router = require('express')
+const router = new Router()
+const Controller = require('../controller/controller')
+
+router.get('/min_date', Controller.getMinDate)
+router.post('/film_seances', Controller.getFilmSeances)
+router.post('/films', Controller.getFilms)
+router.post('/genres', Controller.getGenres)
+router.post('/seances', Controller.getSeances)
+router.post('/places', Controller.getPlaces)
+router.post('/places_busy', Controller.getBusyPlaces)
+router.post('/place_types', Controller.getPlaceTypes)
+router.post('/ticket', Controller.createTicket)
+router.post('/check_ticket', Controller.checkTicket)
+router.post('/film', Controller.getFilm)
+router.post('/screenshots', Controller.getScreenshots)
+router.post('/screenshotsCount', Controller.getScreenshotsCount)
+router.post('/ticket_control', Controller.ticketControl)
+
+module.exports = router

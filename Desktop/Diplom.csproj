@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72A143F2-89FE-4917-AA79-7C9C760CEAE1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Diplom</RootNamespace>
+    <AssemblyName>Diplom</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework6.Npgsql, Version=6.4.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework6.Npgsql.6.4.3\lib\net461\EntityFramework6.Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Npgsql, Version=4.1.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>packages\Npgsql.4.1.3\lib\net461\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.8\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Entities\Country.cs" />
+    <Compile Include="Classes\Entities\DB.cs" />
+    <Compile Include="Classes\Entities\Film.cs" />
+    <Compile Include="Classes\Entities\Genre.cs" />
+    <Compile Include="Classes\Entities\Hall.cs" />
+    <Compile Include="Classes\Entities\Login.cs" />
+    <Compile Include="Classes\Entities\MinAge.cs" />
+    <Compile Include="Classes\Entities\Place.cs" />
+    <Compile Include="Classes\Entities\PlaceType.cs" />
+    <Compile Include="Classes\Entities\Role.cs" />
+    <Compile Include="Classes\Entities\Screenshot.cs" />
+    <Compile Include="Classes\Entities\Seance.cs" />
+    <Compile Include="Classes\Entities\Ticket.cs" />
+    <Compile Include="Classes\Entities\User.cs" />
+    <Compile Include="Classes\Helper.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\FormLoginHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Data\FormLoginHistory.Designer.cs">
+      <DependentUpon>FormLoginHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\FormDataSeance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Data\FormDataSeance.Designer.cs">
+      <DependentUpon>FormDataSeance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\FormDataFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Data\FormDataFilm.Designer.cs">
+      <DependentUpon>FormDataFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\FormDataHall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Data\FormDataHall.Designer.cs">
+      <DependentUpon>FormDataHall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\FormDataTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Data\FormDataTicket.Designer.cs">
+      <DependentUpon>FormDataTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Film\FormGenres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Film\FormGenres.Designer.cs">
+      <DependentUpon>FormGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Film\FormFilmScreenshots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Film\FormFilmScreenshots.Designer.cs">
+      <DependentUpon>FormFilmScreenshots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Hall\FormSingleHall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Hall\FormSingleHall.Designer.cs">
+      <DependentUpon>FormSingleHall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Hall\FormHallPlaces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Hall\FormHallPlaces.Designer.cs">
+      <DependentUpon>FormHallPlaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\List\FormListLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\List\FormListLine.Designer.cs">
+      <DependentUpon>FormListLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\List\FormListPlaceType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\List\FormListPlaceType.Designer.cs">
+      <DependentUpon>FormListPlaceType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\FormManagerMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Menu\FormManagerMenu.Designer.cs">
+      <DependentUpon>FormManagerMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\FormListMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Menu\FormListMenu.Designer.cs">
+      <DependentUpon>FormListMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\FormDataMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Menu\FormDataMenu.Designer.cs">
+      <DependentUpon>FormDataMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAuth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAuth.Designer.cs">
+      <DependentUpon>FormAuth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\FormAdminMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Menu\FormAdminMenu.Designer.cs">
+      <DependentUpon>FormAdminMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormConnection.Designer.cs">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\FormReportDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\FormReportDate.Designer.cs">
+      <DependentUpon>FormReportDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Seance\FormSeance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Seance\FormSeance.Designer.cs">
+      <DependentUpon>FormSeance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Seance\FormSeanceOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Seance\FormSeanceOrder.Designer.cs">
+      <DependentUpon>FormSeanceOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Seance\FormFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Seance\FormFilm.Designer.cs">
+      <DependentUpon>FormFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Seance\FormScreenshot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Seance\FormScreenshot.Designer.cs">
+      <DependentUpon>FormScreenshot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\FormDataUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Data\FormDataUser.Designer.cs">
+      <DependentUpon>FormDataUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pattern\PatternData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pattern\PatternData.Designer.cs">
+      <DependentUpon>PatternData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pattern\Pattern.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pattern\Pattern.Designer.cs">
+      <DependentUpon>Pattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Seance\FormSeanceHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Seance\FormSeanceHistory.Designer.cs">
+      <DependentUpon>FormSeanceHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Single\FormSingleUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Single\FormSingleUser.Designer.cs">
+      <DependentUpon>FormSingleUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Single\FormSingleSeance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Single\FormSingleSeance.Designer.cs">
+      <DependentUpon>FormSingleSeance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Film\FormSingeFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Film\FormSingeFilm.Designer.cs">
+      <DependentUpon>FormSingeFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Single\FormSinglePlaceType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Single\FormSinglePlaceType.Designer.cs">
+      <DependentUpon>FormSinglePlaceType.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Data\FormLoginHistory.resx">
+      <DependentUpon>FormLoginHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Data\FormDataSeance.resx">
+      <DependentUpon>FormDataSeance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Data\FormDataFilm.resx">
+      <DependentUpon>FormDataFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Data\FormDataHall.resx">
+      <DependentUpon>FormDataHall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Data\FormDataTicket.resx">
+      <DependentUpon>FormDataTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Film\FormGenres.resx">
+      <DependentUpon>FormGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Film\FormFilmScreenshots.resx">
+      <DependentUpon>FormFilmScreenshots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Hall\FormSingleHall.resx">
+      <DependentUpon>FormSingleHall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Hall\FormHallPlaces.resx">
+      <DependentUpon>FormHallPlaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\List\FormListLine.resx">
+      <DependentUpon>FormListLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\List\FormListPlaceType.resx">
+      <DependentUpon>FormListPlaceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu\FormManagerMenu.resx">
+      <DependentUpon>FormManagerMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu\FormListMenu.resx">
+      <DependentUpon>FormListMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu\FormDataMenu.resx">
+      <DependentUpon>FormDataMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAuth.resx">
+      <DependentUpon>FormAuth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu\FormAdminMenu.resx">
+      <DependentUpon>FormAdminMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormConnection.resx">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\FormReportDate.resx">
+      <DependentUpon>FormReportDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Seance\FormSeance.resx">
+      <DependentUpon>FormSeance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Seance\FormSeanceOrder.resx">
+      <DependentUpon>FormSeanceOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Seance\FormFilm.resx">
+      <DependentUpon>FormFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Seance\FormScreenshot.resx">
+      <DependentUpon>FormScreenshot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Data\FormDataUser.resx">
+      <DependentUpon>FormDataUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Pattern\PatternData.resx">
+      <DependentUpon>PatternData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Pattern\Pattern.resx">
+      <DependentUpon>Pattern.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Seance\FormSeanceHistory.resx">
+      <DependentUpon>FormSeanceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Single\FormSingleUser.resx">
+      <DependentUpon>FormSingleUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Single\FormSingleSeance.resx">
+      <DependentUpon>FormSingleSeance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Film\FormSingeFilm.resx">
+      <DependentUpon>FormSingeFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Single\FormSinglePlaceType.resx">
+      <DependentUpon>FormSinglePlaceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VISIO_HzBtIYU2LU.png" />
+    <None Include="Resources\update.png" />
+    <None Include="Images\res\history_btn.png" />
+    <None Include="Images\res\vip_place_type.png" />
+    <None Include="Images\res\stand_place_type.png" />
+    <None Include="Images\res\remove.png" />
+    <None Include="Images\res\dontWork_place_type.png" />
+    <None Include="Resources\picture.png" />
+    <None Include="bin\Debug\res\icon.ico" />
+    <None Include="bin\Debug\res\screen.png" />
+    <Content Include="icon.ico" />
+    <None Include="res\back.jpg" />
+    <None Include="res\logo.png" />
+    <None Include="res\Back_Arrow.png" />
+    <None Include="res\icon.ico" />
+    <None Include="res\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>

@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CinemaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Country" EntityType="CinemaModel.Country" />
+    <EntitySet Name="Film" EntityType="CinemaModel.Film" />
+    <EntitySet Name="Genre" EntityType="CinemaModel.Genre" />
+    <EntitySet Name="Hall" EntityType="CinemaModel.Hall" />
+    <EntitySet Name="Login" EntityType="CinemaModel.Login" />
+    <EntitySet Name="MinAge" EntityType="CinemaModel.MinAge" />
+    <EntitySet Name="Place" EntityType="CinemaModel.Place" />
+    <EntitySet Name="PlaceType" EntityType="CinemaModel.PlaceType" />
+    <EntitySet Name="Role" EntityType="CinemaModel.Role" />
+    <EntitySet Name="Row" EntityType="CinemaModel.Row" />
+    <EntitySet Name="Screenshot" EntityType="CinemaModel.Screenshot" />
+    <EntitySet Name="Seance" EntityType="CinemaModel.Seance" />
+    <EntitySet Name="Ticket" EntityType="CinemaModel.Ticket" />
+    <EntitySet Name="User" EntityType="CinemaModel.User" />
+    <AssociationSet Name="FK_Film_Country" Association="CinemaModel.FK_Film_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Film" EntitySet="Film" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Film_MinAge" Association="CinemaModel.FK_Film_MinAge">
+      <End Role="MinAge" EntitySet="MinAge" />
+      <End Role="Film" EntitySet="Film" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Screenshot_Film" Association="CinemaModel.FK_Screenshot_Film">
+      <End Role="Film" EntitySet="Film" />
+      <End Role="Screenshot" EntitySet="Screenshot" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seance_Film" Association="CinemaModel.FK_Seance_Film">
+      <End Role="Film" EntitySet="Film" />
+      <End Role="Seance" EntitySet="Seance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Place_Hall" Association="CinemaModel.FK_Place_Hall">
+      <End Role="Hall" EntitySet="Hall" />
+      <End Role="Place" EntitySet="Place" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Row_Hall" Association="CinemaModel.FK_Row_Hall">
+      <End Role="Hall" EntitySet="Hall" />
+      <End Role="Row" EntitySet="Row" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seance_Hall" Association="CinemaModel.FK_Seance_Hall">
+      <End Role="Hall" EntitySet="Hall" />
+      <End Role="Seance" EntitySet="Seance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_User" Association="CinemaModel.FK_Login_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Place_PlaceType" Association="CinemaModel.FK_Place_PlaceType">
+      <End Role="PlaceType" EntitySet="PlaceType" />
+      <End Role="Place" EntitySet="Place" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Place" Association="CinemaModel.FK_Ticket_Place">
+      <End Role="Place" EntitySet="Place" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="CinemaModel.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Seance" Association="CinemaModel.FK_Ticket_Seance">
+      <End Role="Seance" EntitySet="Seance" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FilmGenre" Association="CinemaModel.FilmGenre">
+      <End Role="Film" EntitySet="Film" />
+      <End Role="Genre" EntitySet="Genre" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="CountryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Film" Relationship="CinemaModel.FK_Film_Country" FromRole="Country" ToRole="Film" />
+  </EntityType>
+  <EntityType Name="Film">
+    <Key>
+      <PropertyRef Name="FilmId" />
+    </Key>
+    <Property Name="FilmId" Type="Int32" Nullable="false" />
+    <Property Name="FilmName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="MinAgeId" Type="Int32" Nullable="false" />
+    <Property Name="FilmDuration" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="FilmDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FilmYear" Type="Int32" Nullable="false" />
+    <Property Name="FilmCover" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Country" Relationship="CinemaModel.FK_Film_Country" FromRole="Film" ToRole="Country" />
+    <NavigationProperty Name="MinAge" Relationship="CinemaModel.FK_Film_MinAge" FromRole="Film" ToRole="MinAge" />
+    <NavigationProperty Name="Screenshot" Relationship="CinemaModel.FK_Screenshot_Film" FromRole="Film" ToRole="Screenshot" />
+    <NavigationProperty Name="Seance" Relationship="CinemaModel.FK_Seance_Film" FromRole="Film" ToRole="Seance" />
+    <NavigationProperty Name="Genre" Relationship="CinemaModel.FilmGenre" FromRole="Film" ToRole="Genre" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="GenreId" />
+    </Key>
+    <Property Name="GenreId" Type="Int32" Nullable="false" />
+    <Property Name="GenreName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Film" Relationship="CinemaModel.FilmGenre" FromRole="Genre" ToRole="Film" />
+  </EntityType>
+  <EntityType Name="Hall">
+    <Key>
+      <PropertyRef Name="HallId" />
+    </Key>
+    <Property Name="HallId" Type="Int32" Nullable="false" />
+    <Property Name="HallLocation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Place" Relationship="CinemaModel.FK_Place_Hall" FromRole="Hall" ToRole="Place" />
+    <NavigationProperty Name="Row" Relationship="CinemaModel.FK_Row_Hall" FromRole="Hall" ToRole="Row" />
+    <NavigationProperty Name="Seance" Relationship="CinemaModel.FK_Seance_Hall" FromRole="Hall" ToRole="Seance" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LoginId" />
+    </Key>
+    <Property Name="LoginId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="LoginDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="CinemaModel.FK_Login_User" FromRole="Login" ToRole="User" />
+  </EntityType>
+  <EntityType Name="MinAge">
+    <Key>
+      <PropertyRef Name="MinAgeId" />
+    </Key>
+    <Property Name="MinAgeId" Type="Int32" Nullable="false" />
+    <Property Name="MinAgeValue" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Film" Relationship="CinemaModel.FK_Film_MinAge" FromRole="MinAge" ToRole="Film" />
+  </EntityType>
+  <EntityType Name="Place">
+    <Key>
+      <PropertyRef Name="PlaceId" />
+    </Key>
+    <Property Name="PlaceId" Type="Int32" Nullable="false" />
+    <Property Name="HallId" Type="Int32" Nullable="false" />
+    <Property Name="Row" Type="Int32" Nullable="false" />
+    <Property Name="PlaceTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Hall" Relationship="CinemaModel.FK_Place_Hall" FromRole="Place" ToRole="Hall" />
+    <NavigationProperty Name="PlaceType" Relationship="CinemaModel.FK_Place_PlaceType" FromRole="Place" ToRole="PlaceType" />
+    <NavigationProperty Name="Ticket" Relationship="CinemaModel.FK_Ticket_Place" FromRole="Place" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="PlaceType">
+    <Key>
+      <PropertyRef Name="PlaceTypeId" />
+    </Key>
+    <Property Name="PlaceTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PlaceTypeName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Place" Relationship="CinemaModel.FK_Place_PlaceType" FromRole="PlaceType" ToRole="Place" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="CinemaModel.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Row">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="RowId" Type="Int32" Nullable="false" />
+    <Property Name="HallId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Hall" Relationship="CinemaModel.FK_Row_Hall" FromRole="Row" ToRole="Hall" />
+  </EntityType>
+  <EntityType Name="Screenshot">
+    <Key>
+      <PropertyRef Name="ScreenshotId" />
+    </Key>
+    <Property Name="ScreenshotId" Type="Int32" Nullable="false" />
+    <Property Name="FilmId" Type="Int32" Nullable="false" />
+    <Property Name="ScreenshotImage" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Film" Relationship="CinemaModel.FK_Screenshot_Film" FromRole="Screenshot" ToRole="Film" />
+  </EntityType>
+  <EntityType Name="Seance">
+    <Key>
+      <PropertyRef Name="SeanceId" />
+    </Key>
+    <Property Name="SeanceId" Type="Int32" Nullable="false" />
+    <Property Name="FilmId" Type="Int32" Nullable="false" />
+    <Property Name="HallId" Type="Int32" Nullable="false" />
+    <Property Name="SeanceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SeanceTime" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="SeanceCost" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Film" Relationship="CinemaModel.FK_Seance_Film" FromRole="Seance" ToRole="Film" />
+    <NavigationProperty Name="Hall" Relationship="CinemaModel.FK_Seance_Hall" FromRole="Seance" ToRole="Hall" />
+    <NavigationProperty Name="Ticket" Relationship="CinemaModel.FK_Ticket_Seance" FromRole="Seance" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Name="TicketId" Type="Int32" Nullable="false" />
+    <Property Name="SeanceId" Type="Int32" Nullable="false" />
+    <Property Name="TicketDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PlaceId" Type="Int32" Nullable="false" />
+    <Property Name="TicketCost" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Place" Relationship="CinemaModel.FK_Ticket_Place" FromRole="Ticket" ToRole="Place" />
+    <NavigationProperty Name="Seance" Relationship="CinemaModel.FK_Ticket_Seance" FromRole="Ticket" ToRole="Seance" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="UserLogin" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserEmail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserLastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserFirstName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserPatronymic" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserPhoneNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="UserBirthDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Login" Relationship="CinemaModel.FK_Login_User" FromRole="User" ToRole="Login" />
+    <NavigationProperty Name="Role" Relationship="CinemaModel.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_Film_Country">
+    <End Type="CinemaModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="CinemaModel.Film" Role="Film" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Film">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Film_MinAge">
+    <End Type="CinemaModel.MinAge" Role="MinAge" Multiplicity="1" />
+    <End Type="CinemaModel.Film" Role="Film" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinAge">
+        <PropertyRef Name="MinAgeId" />
+      </Principal>
+      <Dependent Role="Film">
+        <PropertyRef Name="MinAgeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Screenshot_Film">
+    <End Type="CinemaModel.Film" Role="Film" Multiplicity="1" />
+    <End Type="CinemaModel.Screenshot" Role="Screenshot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Film">
+        <PropertyRef Name="FilmId" />
+      </Principal>
+      <Dependent Role="Screenshot">
+        <PropertyRef Name="FilmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seance_Film">
+    <End Type="CinemaModel.Film" Role="Film" Multiplicity="1" />
+    <End Type="CinemaModel.Seance" Role="Seance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Film">
+        <PropertyRef Name="FilmId" />
+      </Principal>
+      <Dependent Role="Seance">
+        <PropertyRef Name="FilmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Place_Hall">
+    <End Type="CinemaModel.Hall" Role="Hall" Multiplicity="1" />
+    <End Type="CinemaModel.Place" Role="Place" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hall">
+        <PropertyRef Name="HallId" />
+      </Principal>
+      <Dependent Role="Place">
+        <PropertyRef Name="HallId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Row_Hall">
+    <End Type="CinemaModel.Hall" Role="Hall" Multiplicity="1" />
+    <End Type="CinemaModel.Row" Role="Row" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hall">
+        <PropertyRef Name="HallId" />
+      </Principal>
+      <Dependent Role="Row">
+        <PropertyRef Name="HallId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seance_Hall">
+    <End Type="CinemaModel.Hall" Role="Hall" Multiplicity="1" />
+    <End Type="CinemaModel.Seance" Role="Seance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hall">
+        <PropertyRef Name="HallId" />
+      </Principal>
+      <Dependent Role="Seance">
+        <PropertyRef Name="HallId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_User">
+    <End Type="CinemaModel.User" Role="User" Multiplicity="1" />
+    <End Type="CinemaModel.Login" Role="Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Place_PlaceType">
+    <End Type="CinemaModel.PlaceType" Role="PlaceType" Multiplicity="1" />
+    <End Type="CinemaModel.Place" Role="Place" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlaceType">
+        <PropertyRef Name="PlaceTypeId" />
+      </Principal>
+      <Dependent Role="Place">
+        <PropertyRef Name="PlaceTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Place">
+    <End Type="CinemaModel.Place" Role="Place" Multiplicity="1" />
+    <End Type="CinemaModel.Ticket" Role="Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Place">
+        <PropertyRef Name="PlaceId" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="PlaceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Type="CinemaModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="CinemaModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Seance">
+    <End Type="CinemaModel.Seance" Role="Seance" Multiplicity="1" />
+    <End Type="CinemaModel.Ticket" Role="Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seance">
+        <PropertyRef Name="SeanceId" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="SeanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FilmGenre">
+    <End Type="CinemaModel.Film" Role="Film" Multiplicity="*" />
+    <End Type="CinemaModel.Genre" Role="Genre" Multiplicity="*" />
+  </Association>
+</Schema>

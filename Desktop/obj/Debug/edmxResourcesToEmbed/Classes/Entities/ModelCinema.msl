@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CinemaModelContainer" CdmEntityContainer="CinemaEntities">
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="CinemaModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Film">
+      <EntityTypeMapping TypeName="CinemaModel.Film">
+        <MappingFragment StoreEntitySet="Film">
+          <ScalarProperty Name="FilmCover" ColumnName="FilmCover" />
+          <ScalarProperty Name="FilmYear" ColumnName="FilmYear" />
+          <ScalarProperty Name="FilmDescription" ColumnName="FilmDescription" />
+          <ScalarProperty Name="FilmDuration" ColumnName="FilmDuration" />
+          <ScalarProperty Name="MinAgeId" ColumnName="MinAgeId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="FilmName" ColumnName="FilmName" />
+          <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genre">
+      <EntityTypeMapping TypeName="CinemaModel.Genre">
+        <MappingFragment StoreEntitySet="Genre">
+          <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hall">
+      <EntityTypeMapping TypeName="CinemaModel.Hall">
+        <MappingFragment StoreEntitySet="Hall">
+          <ScalarProperty Name="HallLocation" ColumnName="HallLocation" />
+          <ScalarProperty Name="HallId" ColumnName="HallId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="CinemaModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="LoginDateTime" ColumnName="LoginDateTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MinAge">
+      <EntityTypeMapping TypeName="CinemaModel.MinAge">
+        <MappingFragment StoreEntitySet="MinAge">
+          <ScalarProperty Name="MinAgeValue" ColumnName="MinAgeValue" />
+          <ScalarProperty Name="MinAgeId" ColumnName="MinAgeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Place">
+      <EntityTypeMapping TypeName="CinemaModel.Place">
+        <MappingFragment StoreEntitySet="Place">
+          <ScalarProperty Name="PlaceTypeId" ColumnName="PlaceTypeId" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="HallId" ColumnName="HallId" />
+          <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlaceType">
+      <EntityTypeMapping TypeName="CinemaModel.PlaceType">
+        <MappingFragment StoreEntitySet="PlaceType">
+          <ScalarProperty Name="PlaceTypeName" ColumnName="PlaceTypeName" />
+          <ScalarProperty Name="PlaceTypeId" ColumnName="PlaceTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="CinemaModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Row">
+      <EntityTypeMapping TypeName="CinemaModel.Row">
+        <MappingFragment StoreEntitySet="Row">
+          <ScalarProperty Name="HallId" ColumnName="HallId" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Screenshot">
+      <EntityTypeMapping TypeName="CinemaModel.Screenshot">
+        <MappingFragment StoreEntitySet="Screenshot">
+          <ScalarProperty Name="ScreenshotImage" ColumnName="ScreenshotImage" />
+          <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+          <ScalarProperty Name="ScreenshotId" ColumnName="ScreenshotId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seance">
+      <EntityTypeMapping TypeName="CinemaModel.Seance">
+        <MappingFragment StoreEntitySet="Seance">
+          <ScalarProperty Name="SeanceCost" ColumnName="SeanceCost" />
+          <ScalarProperty Name="SeanceTime" ColumnName="SeanceTime" />
+          <ScalarProperty Name="SeanceDate" ColumnName="SeanceDate" />
+          <ScalarProperty Name="HallId" ColumnName="HallId" />
+          <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+          <ScalarProperty Name="SeanceId" ColumnName="SeanceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ticket">
+      <EntityTypeMapping TypeName="CinemaModel.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="TicketCost" ColumnName="TicketCost" />
+          <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+          <ScalarProperty Name="TicketDateTime" ColumnName="TicketDateTime" />
+          <ScalarProperty Name="SeanceId" ColumnName="SeanceId" />
+          <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="CinemaModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserActive" ColumnName="UserActive" />
+          <ScalarProperty Name="UserBirthDate" ColumnName="UserBirthDate" />
+          <ScalarProperty Name="UserPhoneNumber" ColumnName="UserPhoneNumber" />
+          <ScalarProperty Name="UserPatronymic" ColumnName="UserPatronymic" />
+          <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+          <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FilmGenre" TypeName="CinemaModel.FilmGenre" StoreEntitySet="FilmGenre">
+      <EndProperty Name="Genre">
+        <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+      </EndProperty>
+      <EndProperty Name="Film">
+        <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

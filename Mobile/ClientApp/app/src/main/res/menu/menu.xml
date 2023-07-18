@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itm_upd"
+        android:icon="@drawable/upd"
+        android:title="Обновить список"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/itm_api"
+        android:icon="@drawable/api"
+        android:title="Выбрать конечную точку API"
+        app:showAsAction="always" />
+</menu>
